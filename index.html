@@ -4,15 +4,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Can You Pass the Quiz?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="./style.css" rel="stylesheet" />
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 <body>
     <!-- <div class="wrapper"> -->
-        <header>
+        <header class="bg-info text-center text-white ">
             <h1>Coding Quiz Challenge</h1>
+            <nav class="d-flex justify-content-between">
+                <a href=""><h3>High Scores</h3></a>
+                <h3 id="timer">Timer:</h3>
+            </nav>
         </header>
+        <main class="container text-center">
+            <section class ="starttext">
+                <p>Instruction - Player's manual</p>
+                <button class="btn btn-info startbutton">Start Quiz</button>
+            </section>
+            <section class="quiz-section container m-5 p-5 text-center">
+                <h2 id="question"></h2>
+                <div class="d-grid gap-2 container"> 
+                    <button id="option-1" class="btn btn-primary" type="button">Button</button>
+                    <button id="option-2" class="btn btn-primary" type="button">Button</button>
+                    <button id="option-3" class="btn btn-primary" type="button">Button</button>
+                    <button id="option-4" class="btn btn-primary" type="button">Button</button>
+                  </div>
+                <p id="Answer"></p>
+
+            </section>
+            <section id="end-results">
+                <h4 id="score"></h4>
+                <label>Please enter User name</label>
+                <input type="text" id="user" />
+                <button id="save-score">Save</button>
+            </section>
+        </main>
     <!-- </div> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+   <script src="./questions.js"></script>
     <script src="./script.js"></script>
 </body>
 </html
