@@ -68,9 +68,10 @@ function checkAnswer (choiceIndex){
         answerEl.textContent = "Correct!"
     } else {
         answerEl.textContent = "Wrong!"
+        score--
         //change box to red 
         // green style.backgroundColor = "green"
-        //decrease score and timer
+        
     }
 }
 

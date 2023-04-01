@@ -12,21 +12,21 @@ var questionsList = [
     },
 
     {
-        question: "Temp Q",
-        choices: ["Option1","Option2","Option3","Option4"],
-        answer:"Option1"
+        question: "Commonly used data types DO NOT include:",
+        choices: ["Strings","Booleans","Alerts","Numbers"],
+        answer:"Alerts"
     },
 
     {
-        question: "Temp Q",
-        choices: ["Option1","Option2","Option3","Option4"],
-        answer:"Option1"
+        question: "The condition in an if/else statement is enclosed with ___.",
+        choices: ["Quotes","Curly Brackets","Parenthesis","Square Brackets"],
+        answer:"Parenthesis"
     },
 
     {
-        question: "Temp Q - last",
-        choices: ["Option1","Option2","Option3","Option4"],
-        answer:"Option4"
+        question: "Inside which HTML element do we put the Javascript?",
+        choices: ["<script>","<js>","<javascript>","scirpting"],
+        answer:"<script>"
     },
 ];
 
