@@ -9,11 +9,13 @@ var options2El = document.getElementById("option-2")
 var options3El = document.getElementById("option-3")
 var options4El = document.getElementById("option-4")
 var answerEl = document.getElementById("answer")
+var scoreEl = document.getElementById("score")
+var saveEl = document.getElementById("save-score")
 
 var timerObject;
 var timerCount = 50;
 var QNo = 0;
-
+var score = 0;
 
 quizSectEl.style.display = "none"
 endResultsEl.style.display = "none"
@@ -26,6 +28,7 @@ startButtonEl.addEventListener("click", function(){
         if (timerCount >0){
             timerCount--
         } else {
+            //timer ==0 scoreEl to be display block display_score()
             display_score()
         }
      },1000)
@@ -53,10 +56,13 @@ function addOnClickListenersForOptions(){
     });
 
 }
+//after gone through all quiz questions want to show the score
+  //  if (currentQuestionObject is the last question, quiz is over to display the score
 
 function onChooseOption(choiceIndex){
     checkAnswer (choiceIndex)
     proceedToNextQuestion ()
+    //endScore ()
 
 }
 
@@ -66,19 +72,44 @@ function checkAnswer (choiceIndex){
     var userAnswer = currentQuestionObject.choices[choiceIndex]
     if (userAnswer == correctAnswer){
         answerEl.textContent = "Correct!"
+        score++    
     } else {
         answerEl.textContent = "Wrong!"
-        score--
-        //change box to red 
-        // green style.backgroundColor = "green"
+        timerCount-= 5
+    }
+    
+}
+
+function proceedToNextQuestion (){
+    if(QNo < questionsList.length-1){
+    QNo++
+    display_Questions()
+    }else{
+        display_score()
         
     }
 }
 
-function proceedToNextQuestion (){
-    QNo++
-    display_Questions()
+function display_score (){
+    timerCount = 0
+    timerEl.textContent ="Times Up!:" + timerCount
+    quizSectEl.style.display = "none"
+    endResultsEl.style.display = "block"
+    scoreEl.innerText = "this is your final score: " + (score + timerCount )
+    clearInterval(timerObject)
 }
+
+saveEl.addEventListener("click", function(){
+    var userAnswer = document.getElementById("user").value 
+    var storeScore = JSON.parse(localStorage.getItem("codelist")) || []
+    storeScore.push({
+        user:userAnswer,score:(score + timerCount)
+
+    })
+    localStorage.setItem("codelist",JSON.stringify(storeScore))
+
+}
+)
 
 function display_Questions (){
     var currentQuestionObject = questionsList[QNo]
@@ -89,11 +120,3 @@ function display_Questions (){
     options4El.textContent = currentQuestionObject.choices[3]
 }
 
-
-function answerIsCorrect (){
-    document.getElementById(questionsList).style.backgroundColor = "green"; 
-}
-
-function answerIsWrong (){
-    document.getElementById(questionsList).style.backgroundColor = "red"; 
-}

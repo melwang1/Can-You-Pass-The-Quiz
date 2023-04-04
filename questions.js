@@ -25,7 +25,7 @@ var questionsList = [
 
     {
         question: "Inside which HTML element do we put the Javascript?",
-        choices: ["<script>","<js>","<javascript>","scirpting"],
+        choices: ["<script>","<js>","<javascript>","scripting"],
         answer:"<script>"
     },
 ];
