@@ -92,10 +92,10 @@ function proceedToNextQuestion (){
 
 function display_score (){
     timerCount = 0
-    timerEl.textContent ="Times Up!:" + timerCount
+    timerEl.textContent ="Times Reamining:" + timerCount
     quizSectEl.style.display = "none"
     endResultsEl.style.display = "block"
-    scoreEl.innerText = "this is your final score: " + (score + timerCount )
+    scoreEl.innerText = "This is Your Final Score: " + (score + timerCount )
     clearInterval(timerObject)
 }
 
@@ -111,7 +111,7 @@ saveEl.addEventListener("click", function(){
     for (var i=0; i<storeScore.length; i++){
         htmlCode += "<li>User: "+storeScore[i].user+" -- "+storeScore[i].score+"</li>" // htmlCode = htmlCode + ""
     }
-    htmlCode += `<br /><a href="/">Play Again</a>`
+    htmlCode += `<br /><a href="#">PlAY AGAIN</a>`
     document.getElementById("Scoreboard").innerHTML=htmlCode
     saveEl.style.display="none"
     userAnswer.style.display="none"
