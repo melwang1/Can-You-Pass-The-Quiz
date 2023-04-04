@@ -100,14 +100,20 @@ function display_score (){
 }
 
 saveEl.addEventListener("click", function(){
-    var userAnswer = document.getElementById("user").value 
+    var userAnswer = document.getElementById("user") 
     var storeScore = JSON.parse(localStorage.getItem("codelist")) || []
     storeScore.push({
-        user:userAnswer,score:(score + timerCount)
+        user:userAnswer.value,score:(score + timerCount)
 
     })
     localStorage.setItem("codelist",JSON.stringify(storeScore))
-
+        var htmlCode ="" //Empty String
+    for (var i=0; i<storeScore.length; i++){
+        htmlCode += "<li>User: "+storeScore[i].user+" -- "+storeScore[i].score+"</li>" // htmlCode = htmlCode + ""
+    }
+    document.getElementById("Scoreboard").innerHTML=htmlCode
+    saveEl.style.display="none"
+    userAnswer.style.display="none"
 }
 )
 
