@@ -111,6 +111,7 @@ saveEl.addEventListener("click", function(){
     for (var i=0; i<storeScore.length; i++){
         htmlCode += "<li>User: "+storeScore[i].user+" -- "+storeScore[i].score+"</li>" // htmlCode = htmlCode + ""
     }
+    htmlCode += `<br /><a href="/">Play Again</a>`
     document.getElementById("Scoreboard").innerHTML=htmlCode
     saveEl.style.display="none"
     userAnswer.style.display="none"
